@@ -19,10 +19,10 @@ if [ -d "$CACHE_DIR/.jdk7" ]; then
   echo "done"
 fi
 
-ORACLEJDK7_URL="https://s3.amazonaws.com/tarballz/jdk-7u9-linux-x64.tar.gz"
+ORACLEJDK7_URL="https://s3.amazonaws.com/tarballz/jdk-7u17-linux-x64.tar.gz"
 
 if [ ! -d "$BUILD_DIR/.jdk7" ]; then
-  echo -n "-----> Installing JDK7u9 build (to .jdk7)....."
+  echo -n "-----> Installing JDK7u17 build (to .jdk7)....."
   mkdir "$BUILD_DIR/.jdk7"
   cd "$BUILD_DIR/.jdk7"
   curl --max-time 180 --location $ORACLEJDK7_URL | tar xz
@@ -37,10 +37,10 @@ if [ -d "$CACHE_DIR/.vertx" ]; then
   echo "done"
 fi
 
-VERTX_URL="http://vertx.io/downloads/vert.x-1.3.0.final.tar.gz"
+VERTX_URL="http://vertx.io/downloads/vert.x-1.3.1.final.tar.gz"
 
 if [ ! -d "$BUILD_DIR/.vertx" ]; then
-  echo -n "-----> Installing Vert.x build (to .vertx)....."
+  echo -n "-----> Installing Vert.x 1.3.1.final build (to .vertx)....."
   curl --max-time 320 --location $VERTX_URL | tar xz
   mv vert* .vertx
   rm '.vertx/bin/vertx.bat'
