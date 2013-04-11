@@ -7,7 +7,7 @@ cat <<EOF
 ---
 config_vars:
   PATH: .jdk7/bin:.vertx/bin:.tools:/usr/local/bin:/usr/bin:/bin
-  JAVA_OPTS: -Xmx384m
+  JAVA_OPTS: -Xmx384m -Djava.net.preferIPv4Stack=true
 addons:
   shared-database:5mb
 EOF
