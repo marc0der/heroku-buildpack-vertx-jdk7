@@ -19,13 +19,15 @@ if [ -d "$CACHE_DIR/.jdk7" ]; then
   echo "done"
 fi
 
-ORACLEJDK7_URL="https://s3.amazonaws.com/tarballz/jdk-7u17-linux-x64.tar.gz"
+#env variables
+JAVA_DIST="openjdk1.7.0_21"
+JDK7_URL="https://s3.amazonaws.com/heroku-jdk/${JAVA_DIST}.tar.gz"
 
 if [ ! -d "$BUILD_DIR/.jdk7" ]; then
-  echo -n "-----> Installing JDK7u17 build (to .jdk7)....."
+  echo -n "-----> Installing $JAVA_DIST (to .jdk7)....."
   mkdir "$BUILD_DIR/.jdk7"
   cd "$BUILD_DIR/.jdk7"
-  curl --max-time 180 --location $ORACLEJDK7_URL | tar xz
+  curl --max-time 180 --location $JDK7_URL | tar xz
   cd $BUILD_DIR
   cp -r .jdk7 $CACHE_DIR/.jdk7
   echo " done"
